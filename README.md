@@ -1,3 +1,3 @@
-# Wonder-Maker
-This is a FAN-GAME made by only one person.
-It's made from zero in Godot Engine 3.6.
+# Wonder Maker
+A SMM2 Fangame made from scratch on Godot Engine v3.5.3.
+Made by Manzft27.
