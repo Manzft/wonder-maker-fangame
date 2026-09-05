@@ -1,0 +1,9 @@
+{
+	"order": 0,
+	"settings": {
+		"card": {
+			"type": "path",
+			"value": "/sprites/style_cards/super_mario_bros.png"
+		}
+	}
+}

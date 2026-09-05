@@ -1,0 +1,156 @@
+{
+	"components": [
+		{
+			"name": "Ground",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": false
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"frame": {
+					"type": "number",
+					"value": 36.0
+				},
+				"hframes": {
+					"type": "number",
+					"value": 12.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 5.0
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 5.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/super_mario_bros/objects/terrain/ground/floor.png"
+				},
+				"vframes": {
+					"type": "number",
+					"value": 4.0
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite"
+		},
+		{
+			"name": "Underground",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": false
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"frame": {
+					"type": "number",
+					"value": 36.0
+				},
+				"hframes": {
+					"type": "number",
+					"value": 12.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 5.0
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 5.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/super_mario_bros/objects/terrain/underground/floor.png"
+				},
+				"vframes": {
+					"type": "number",
+					"value": 4.0
+				},
+				"visible": {
+					"type": "switch",
+					"value": false
+				}
+			},
+			"type": "sprite"
+		}
+	],
+	"order": 1,
+	"script": "wscript\n",
+	"settings": {
+		"category": {
+			"type": "text",
+			"value": "terrain"
+		},
+		"friction": {
+			"type": "number",
+			"value": 1.0
+		},
+		"gravity": {
+			"type": "number",
+			"value": 1.0
+		},
+		"icon": {
+			"type": "path",
+			"value": "/sprites/game_styles/super_mario_bros/editor_icons/terrain/themes/ground/floor.png"
+		},
+		"is_floor": {
+			"type": "switch",
+			"value": true
+		},
+		"solid": {
+			"type": "switch",
+			"value": true
+		}
+	}
+}

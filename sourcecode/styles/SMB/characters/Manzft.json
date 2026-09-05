@@ -1,0 +1,115 @@
+{
+	"components": [
+		{
+			"animations": [
+				{
+					"name": "idle",
+					"settings": {
+						"frame": {
+							"type": "number",
+							"value": 0.0
+						},
+						"hframes": {
+							"type": "number",
+							"value": 1.0
+						},
+						"texture": {
+							"type": "path",
+							"value": "/sprites/game_styles/super_mario_bros/characters/manzft/small/idle.png"
+						},
+						"vframes": {
+							"type": "number",
+							"value": 1.0
+						}
+					}
+				},
+				{
+					"name": "walk",
+					"settings": {
+						"fps": {
+							"type": "number",
+							"value": 10.0
+						},
+						"frame": {
+							"type": "number",
+							"value": 0.0
+						},
+						"hframes": {
+							"type": "number",
+							"value": 3.0
+						},
+						"texture": {
+							"type": "path",
+							"value": "/sprites/game_styles/super_mario_bros/characters/manzft/small/run_walk.png"
+						},
+						"vframes": {
+							"type": "number",
+							"value": 1.0
+						}
+					}
+				}
+			],
+			"current_animation": "walk",
+			"name": "AnimSprite",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": false
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 5.0
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 5.0
+				},
+				"texture": {
+					"type": "path",
+					"value": ""
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "animated_sprite"
+		}
+	],
+	"order": 1,
+	"script": "wscript\ncreate()\nend\n\nstart()\nend\n\nframe()\n    //Horizontal Movement\n    if (CheckInput(\"right\"))\n        MoveX(6.7)\n    elif (CheckInput(\"left\"))\n        MoveX(-6.7)\n    end\n    \n    //Vertical movement\n    if (CheckInput(\"up\"))\n        MoveY(-6.7)\n    elif (CheckInput(\"crouch\"))\n        MoveY(6.7)\nend",
+	"settings": {
+		"friction": {
+			"type": "number",
+			"value": 1.0
+		},
+		"gravity": {
+			"type": "number",
+			"value": 1.0
+		}
+	}
+}

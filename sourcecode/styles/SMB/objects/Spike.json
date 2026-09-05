@@ -1,0 +1,149 @@
+{
+	"components": [
+		{
+			"animations": [
+				{
+					"name": "Ground",
+					"settings": {
+						"fps": {
+							"type": "number",
+							"value": 5.0
+						},
+						"frame": {
+							"type": "number",
+							"value": 0.0
+						},
+						"hframes": {
+							"type": "number",
+							"value": 2.0
+						},
+						"texture": {
+							"type": "path",
+							"value": "/sprites/game_styles/super_mario_bros/objects/terrain/ground/spike.png"
+						},
+						"vframes": {
+							"type": "number",
+							"value": 1.0
+						}
+					}
+				},
+				{
+					"name": "Underground",
+					"settings": {
+						"fps": {
+							"type": "number",
+							"value": 5.0
+						},
+						"frame": {
+							"type": "number",
+							"value": 0.0
+						},
+						"hframes": {
+							"type": "number",
+							"value": 2.0
+						},
+						"texture": {
+							"type": "path",
+							"value": "/sprites/game_styles/super_mario_bros/objects/terrain/underground/spike.png"
+						},
+						"vframes": {
+							"type": "number",
+							"value": 1.0
+						}
+					}
+				}
+			],
+			"current_animation": "Ground",
+			"name": "Sprite",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": false
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 5.0
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 5.0
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "animated_sprite"
+		},
+		{
+			"name": "Collider",
+			"settings": {
+				"position_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"size_x": {
+					"type": "number",
+					"value": 80.0
+				},
+				"size_y": {
+					"type": "number",
+					"value": 80.0
+				}
+			},
+			"type": "collider"
+		}
+	],
+	"order": 3,
+	"script": "wscript\n\nupdate_sprite()\n    GetComponent(\"Sprite\").Play(GetTheme())\nend\n\ncreate()\n    update_sprite()\nend\n\nthemeChange()\n    update_sprite()\nend",
+	"settings": {
+		"category": {
+			"type": "text",
+			"value": "terrain"
+		},
+		"friction": {
+			"type": "number",
+			"value": 1.0
+		},
+		"gravity": {
+			"type": "number",
+			"value": 1.0
+		},
+		"icon": {
+			"type": "path",
+			"value": "/sprites/game_styles/super_mario_bros/editor_icons/terrain/themes/ground/spike.png"
+		},
+		"solid": {
+			"type": "switch",
+			"value": true
+		}
+	}
+}

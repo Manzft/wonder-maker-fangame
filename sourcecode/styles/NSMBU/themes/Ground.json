@@ -1,0 +1,757 @@
+{
+	"components": [
+		{
+			"name": "sky",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"frame": {
+					"type": "number",
+					"value": 0.0
+				},
+				"hframes": {
+					"type": "number",
+					"value": 1.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 2250.46728515625
+				},
+				"position_y": {
+					"type": "number",
+					"value": 1597.53173828125
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 10.0
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 8.0
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 1.0
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/background/ground/sky.png"
+				},
+				"vframes": {
+					"type": "number",
+					"value": 1.0
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite_parallax"
+		},
+		{
+			"name": "bg",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": false
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 1280.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 1280.0
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 5.0
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 5.0
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 0.5
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/super_mario_bros/background/ground.png"
+				},
+				"visible": {
+					"type": "switch",
+					"value": false
+				}
+			},
+			"type": "sprite_parallax"
+		},
+		{
+			"name": "Tree",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 2133.591796875
+				},
+				"position_y": {
+					"type": "number",
+					"value": 2052.87255859375
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 2496.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 1.0
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 0.4
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/background/ground/tree.png"
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite_parallax"
+		},
+		{
+			"name": "rock",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 605.817138671875
+				},
+				"position_y": {
+					"type": "number",
+					"value": 2238.3671875
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 1920.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 1.0
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 0.5
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/background/ground/rock.png"
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite_parallax"
+		},
+		{
+			"name": "grass (2layer)",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 318.015075683594
+				},
+				"position_y": {
+					"type": "number",
+					"value": 2279.54833984375
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 3840.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 0.5
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/background/ground/grass.png"
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite_parallax"
+		},
+		{
+			"name": "grass2 (2layer)",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 1542.63342285156
+				},
+				"position_y": {
+					"type": "number",
+					"value": 2279.19091796875
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 3840.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 0.5
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/background/ground/grass.png"
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite_parallax"
+		},
+		{
+			"name": "grass3 (2layer)",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 2769.44360351562
+				},
+				"position_y": {
+					"type": "number",
+					"value": 2277.541015625
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 3840.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 0.5
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/background/ground/grass.png"
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite_parallax"
+		},
+		{
+			"name": "Tree2",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 990.281860351562
+				},
+				"position_y": {
+					"type": "number",
+					"value": 2200.62329101562
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 1920.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 1.0
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 0.5
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/background/ground/tree.png"
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite_parallax"
+		},
+		{
+			"name": "grass",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 614.258483886719
+				},
+				"position_y": {
+					"type": "number",
+					"value": 2438.64379882812
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 3840.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/background/ground/grass.png"
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite_parallax"
+		},
+		{
+			"name": "grass2",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 1840.52331542969
+				},
+				"position_y": {
+					"type": "number",
+					"value": 2438.8515625
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 3840.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/background/ground/grass.png"
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite_parallax"
+		},
+		{
+			"name": "grass3",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 3068.75854492188
+				},
+				"position_y": {
+					"type": "number",
+					"value": 2438.8515625
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 3840.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 0.6
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/background/ground/grass.png"
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite_parallax"
+		}
+	],
+	"order": 0,
+	"settings": {
+		"card": {
+			"type": "path",
+			"value": "/sprites/theme_cards/ground.png"
+		},
+		"shadows": {
+			"type": "switch",
+			"value": false
+		},
+		"square_card": {
+			"type": "path",
+			"value": "/sprites/theme_cards/square/ground.png"
+		}
+	}
+}

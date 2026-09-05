@@ -1,0 +1,85 @@
+{
+	"components": [
+		{
+			"name": "bg",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": false
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 1280.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 1280.0
+				},
+				"repeat_size_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"repeat_size_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 5.0
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 5.0
+				},
+				"scroll_scale_x": {
+					"type": "number",
+					"value": 0.5
+				},
+				"scroll_scale_y": {
+					"type": "number",
+					"value": 1.0
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/super_mario_bros/background/underground.png"
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite_parallax"
+		}
+	],
+	"order": 1,
+	"settings": {
+		"card": {
+			"type": "path",
+			"value": "/sprites/theme_cards/underground.png"
+		},
+		"shadows": {
+			"type": "switch",
+			"value": true
+		},
+		"square_card": {
+			"type": "path",
+			"value": "/sprites/theme_cards/square/underground.png"
+		}
+	}
+}

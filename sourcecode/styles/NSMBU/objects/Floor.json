@@ -1,0 +1,94 @@
+{
+	"components": [
+		{
+			"name": "Ground",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"frame": {
+					"type": "number",
+					"value": 36.0
+				},
+				"hframes": {
+					"type": "number",
+					"value": 12.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 1.33
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 1.33
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/objects/terrain/ground/floor.png"
+				},
+				"vframes": {
+					"type": "number",
+					"value": 4.0
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite"
+		}
+	],
+	"order": 0,
+	"script": "wscript\n",
+	"settings": {
+		"category": {
+			"type": "option",
+			"value": "terrain"
+		},
+		"friction": {
+			"type": "number",
+			"value": 1.0
+		},
+		"gravity": {
+			"type": "number",
+			"value": 1.0
+		},
+		"icon": {
+			"type": "path",
+			"value": "/sprites/game_styles/new_super_mario_bros_u/editor_icons/terrain/themes/ground/floor.png"
+		},
+		"is_floor": {
+			"type": "switch",
+			"value": true
+		},
+		"solid": {
+			"type": "switch",
+			"value": true
+		}
+	}
+}

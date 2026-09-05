@@ -1,0 +1,120 @@
+{
+	"components": [
+		{
+			"name": "Sprite",
+			"settings": {
+				"blur": {
+					"type": "switch",
+					"value": true
+				},
+				"color_a": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_b": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_g": {
+					"type": "number",
+					"value": 255.0
+				},
+				"color_r": {
+					"type": "number",
+					"value": 255.0
+				},
+				"frame": {
+					"type": "number",
+					"value": 0.0
+				},
+				"hframes": {
+					"type": "number",
+					"value": 1.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"scale_x": {
+					"type": "number",
+					"value": 1.25
+				},
+				"scale_y": {
+					"type": "number",
+					"value": 1.25
+				},
+				"texture": {
+					"type": "path",
+					"value": "/sprites/game_styles/new_super_mario_bros_u/objects/terrain/ground/block.png"
+				},
+				"vframes": {
+					"type": "number",
+					"value": 1.0
+				},
+				"visible": {
+					"type": "switch",
+					"value": true
+				}
+			},
+			"type": "sprite"
+		},
+		{
+			"name": "Collider",
+			"settings": {
+				"position_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"size_x": {
+					"type": "number",
+					"value": 80.0
+				},
+				"size_y": {
+					"type": "number",
+					"value": 80.0
+				}
+			},
+			"type": "collider"
+		}
+	],
+	"order": 1,
+	"script": "wscript\ncreate()\n\nend\n\nstart()\n\nend\n\nframe()\n\nend\n",
+	"settings": {
+		"category": {
+			"type": "text",
+			"value": "terrain"
+		},
+		"friction": {
+			"type": "number",
+			"value": 1.0
+		},
+		"gravity": {
+			"type": "number",
+			"value": 1.0
+		},
+		"icon": {
+			"type": "path",
+			"value": "/sprites/game_styles/new_super_mario_bros_u/editor_icons/terrain/themes/ground/block.png"
+		},
+		"is_floor": {
+			"type": "switch",
+			"value": false
+		},
+		"is_tile": {
+			"type": "switch",
+			"value": false
+		},
+		"solid": {
+			"type": "switch",
+			"value": true
+		}
+	}
+}
