@@ -128,7 +128,7 @@
 		}
 	],
 	"order": 0,
-	"script": "wscript\n\nframe = 0\n\nframe()\n    if (Timer(0.5))\n        if (frame == 0)\n            frame = 1\n        else\n            frame = 0\n        end\n        GetComponent(\"SpriteAnimated\").frame = frame\n    end\nend",
+	"script": "wscript\n\nframe = 0\n\nframe()\n    MoveX(-10)\n    if (Timer(0.5))\n        if (frame == 0)\n            frame = 1\n        else\n            frame = 0\n        \n        end\n        GetComponent(\"SpriteAnimated\").frame = frame\n    end\nend",
 	"settings": {
 		"category": {
 			"type": "text",
