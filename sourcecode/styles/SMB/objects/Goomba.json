@@ -1,57 +1,100 @@
 {
 	"components": [
 		{
-			"name": "Sprite",
-			"settings": {
-				"blur": {
-					"type": "switch",
-					"value": false
+			"animations": [
+				{
+					"name": "Idle",
+					"settings": {
+						"end_frame": {
+							"type": "number",
+							"value": 0.0
+						},
+						"fps": {
+							"type": "number",
+							"value": 60.0
+						},
+						"frame": {
+							"type": "number",
+							"value": 0.0
+						},
+						"hframes": {
+							"type": "number",
+							"value": 1.0
+						},
+						"offset_x": {
+							"type": "number",
+							"value": 0.0
+						},
+						"offset_y": {
+							"type": "number",
+							"value": 0.0
+						},
+						"repeat": {
+							"type": "switch",
+							"value": true
+						},
+						"start_frame": {
+							"type": "number",
+							"value": 0.0
+						},
+						"texture": {
+							"type": "path",
+							"value": "/sprites/game_styles/super_mario_bros/objects/enemies/goomba/idle.png"
+						},
+						"vframes": {
+							"type": "number",
+							"value": 1.0
+						}
+					}
 				},
-				"color_a": {
-					"type": "number",
-					"value": 255.0
-				},
-				"color_b": {
-					"type": "number",
-					"value": 255.0
-				},
-				"color_g": {
-					"type": "number",
-					"value": 255.0
-				},
-				"color_r": {
-					"type": "number",
-					"value": 255.0
-				},
-				"position_x": {
-					"type": "number",
-					"value": 0.0
-				},
-				"position_y": {
-					"type": "number",
-					"value": 0.0
-				},
-				"scale_x": {
-					"type": "number",
-					"value": 5.0
-				},
-				"scale_y": {
-					"type": "number",
-					"value": 5.0
-				},
-				"texture": {
-					"type": "path",
-					"value": "/sprites/game_styles/super_mario_bros/objects/enemies/goomba/idle.png"
-				},
-				"visible": {
-					"type": "switch",
-					"value": false
+				{
+					"name": "walk",
+					"settings": {
+						"end_frame": {
+							"type": "number",
+							"value": 0.0
+						},
+						"fps": {
+							"type": "number",
+							"value": 5.0
+						},
+						"frame": {
+							"type": "number",
+							"value": 0.0
+						},
+						"hframes": {
+							"type": "number",
+							"value": 2.0
+						},
+						"offset_x": {
+							"type": "number",
+							"value": 0.0
+						},
+						"offset_y": {
+							"type": "number",
+							"value": 0.0
+						},
+						"repeat": {
+							"type": "switch",
+							"value": true
+						},
+						"start_frame": {
+							"type": "number",
+							"value": 0.0
+						},
+						"texture": {
+							"type": "path",
+							"value": "/sprites/game_styles/super_mario_bros/objects/enemies/goomba/walk.png"
+						},
+						"vframes": {
+							"type": "number",
+							"value": 1.0
+						}
+					}
 				}
-			},
-			"type": "sprite"
-		},
-		{
-			"name": "SpriteAnimated",
+			],
+			"current_animation": "walk",
+			"name": "Animated Sprite",
 			"settings": {
 				"blur": {
 					"type": "switch",
@@ -73,9 +116,13 @@
 					"type": "number",
 					"value": 255.0
 				},
-				"hframes": {
-					"type": "number",
-					"value": 2.0
+				"flipx": {
+					"type": "switch",
+					"value": false
+				},
+				"flipy": {
+					"type": "switch",
+					"value": false
 				},
 				"position_x": {
 					"type": "number",
@@ -92,17 +139,13 @@
 				"scale_y": {
 					"type": "number",
 					"value": 5.0
-				},
-				"texture": {
-					"type": "path",
-					"value": "/sprites/game_styles/super_mario_bros/objects/enemies/goomba/walk.png"
 				},
 				"visible": {
 					"type": "switch",
 					"value": true
 				}
 			},
-			"type": "sprite"
+			"type": "animated_sprite"
 		},
 		{
 			"name": "Collider",
@@ -125,10 +168,70 @@
 				}
 			},
 			"type": "collider"
+		},
+		{
+			"name": "RightRay",
+			"settings": {
+				"dirx": {
+					"max": 1.0,
+					"min": -1.0,
+					"type": "number",
+					"value": 1.0
+				},
+				"diry": {
+					"max": 1.0,
+					"min": -1.0,
+					"type": "number",
+					"value": 0.0
+				},
+				"length": {
+					"type": "number",
+					"value": 5.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": 40.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 8.0
+				}
+			},
+			"type": "raycast"
+		},
+		{
+			"name": "LeftRay",
+			"settings": {
+				"dirx": {
+					"max": 1.0,
+					"min": -1.0,
+					"type": "number",
+					"value": -1.0
+				},
+				"diry": {
+					"max": 1.0,
+					"min": -1.0,
+					"type": "number",
+					"value": 0.0
+				},
+				"length": {
+					"type": "number",
+					"value": 5.0
+				},
+				"position_x": {
+					"type": "number",
+					"value": -40.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 8.0
+				}
+			},
+			"type": "raycast"
 		}
 	],
 	"order": 0,
-	"script": "wscript\n\nframe = 0\n\nframe()\n    MoveX(-10)\n    if (Timer(0.5))\n        if (frame == 0)\n            frame = 1\n        else\n            frame = 0\n        \n        end\n        GetComponent(\"SpriteAnimated\").frame = frame\n    end\nend",
+	"script": "wscript\n\ncreate()\n    GetComponent(\"Animated Sprite\").Play(\"idle\")\nend\n\nframe = 0\n\nspeed = 2\ndir = \"left\"\n\nstart()\n    GetComponent(\"Animated Sprite\").Play(\"walk\")\nend\n\n\nframe()\n    if (dir == \"left\")\n        MoveX(speed*-1)\n    else\n        MoveX(speed)\n    end\nend\n\nRightRayBodyEntered()\n    dir = \"left\"\n    Log(GetComponent(\"RightRay\").GetBody())\nend\n\nLeftRayBodyEntered()\n    dir = \"right\"\n    Log(GetComponent(\"LeftRay\").GetBody())\nend\n",
 	"settings": {
 		"category": {
 			"type": "text",
@@ -140,7 +243,7 @@
 		},
 		"gravity": {
 			"type": "number",
-			"value": 0.0
+			"value": 1.5
 		},
 		"icon": {
 			"type": "path",

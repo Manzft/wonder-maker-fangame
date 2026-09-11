@@ -39,6 +39,10 @@
 					"type": "number",
 					"value": 0.0
 				},
+				"rotation": {
+					"type": "number",
+					"value": 0.0
+				},
 				"scale_x": {
 					"type": "number",
 					"value": 5.0

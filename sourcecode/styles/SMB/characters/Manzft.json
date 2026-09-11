@@ -50,7 +50,7 @@
 				}
 			],
 			"current_animation": "walk",
-			"name": "AnimSprite",
+			"name": "WalkAnim",
 			"settings": {
 				"blur": {
 					"type": "switch",
@@ -98,18 +98,44 @@
 				}
 			},
 			"type": "animated_sprite"
+		},
+		{
+			"name": "Collider",
+			"settings": {
+				"friction": {
+					"type": "number",
+					"value": 0.5
+				},
+				"position_x": {
+					"type": "number",
+					"value": 0.0
+				},
+				"position_y": {
+					"type": "number",
+					"value": 0.0
+				},
+				"size_x": {
+					"type": "number",
+					"value": 60.0
+				},
+				"size_y": {
+					"type": "number",
+					"value": 80.0
+				}
+			},
+			"type": "collider"
 		}
 	],
 	"order": 1,
-	"script": "wscript\ncreate()\nend\n\nstart()\nend\n\nframe()\n    //Horizontal Movement\n    if (CheckInput(\"right\"))\n        MoveX(6.7)\n    elif (CheckInput(\"left\"))\n        MoveX(-6.7)\n    end\n    \n    //Vertical movement\n    if (CheckInput(\"up\"))\n        MoveY(-6.7)\n    elif (CheckInput(\"crouch\"))\n        MoveY(6.7)\nend",
+	"script": "wscript\n// mairo by erpowel (manz subeme el sueldo.)\n\nrun_speed = 0\ndrifting = false\ncrouch_jump = false\nstarted_jumping = false\n\ncreate()\n    GetComponent(\"WalkAnim\").Play(\"idle\")\nend\n\nframe()\n    is_moving = false\n    \n    // agachado\n    if (IsOnFloor()):\n        crouching = CheckInput(\"crouch\")\n        crouch_jump = false\n        started_jumping = false\n    else\n        drifting = false\n\n        if (crouch_jump):\n            if (GetComponent(\"\").speed_y < 0):\n                crouching = true\n            else\n                crouching = CheckInput(\"crouch\")\n            end\n        else\n            crouching = false\n        end\n    end\n\n    // detectar si hay cambio de direccion en suelo \n    if (IsOnFloor() and !crouching):\n        if (run_speed > 10):\n            if (GetComponent(\"\").speed_x > 50 and CheckInput(\"left\")):\n                drifting = true\n            elif (GetComponent(\"\").speed_x < -50 and CheckInput(\"right\")):\n                drifting = true\n            end\n        end\n    end\n\n    // cancelar estado de derrape cuando mairo frena por completo\n    if (GetComponent(\"\").speed_x >= -50 and GetComponent(\"\").speed_x <= 50):\n        drifting = false\n    end\n\n    // control de aceleración al correr\n    if (CheckInput(\"run\") and (CheckInput(\"left\") or CheckInput(\"right\")) and !drifting):\n        if (run_speed < 450):\n            run_speed += 10.71\n        end\n    elif (!drifting):\n        run_speed = 0\n    end\n\n    // si entra en derrape se reinicia el impulso acumulado\n    if (drifting):\n        run_speed = 0\n    end\n\n    // salto (diferente cuando corres) \n    if (CheckInput(\"jump\") and IsOnFloor()):\n        started_jumping = true\n        if (crouching):\n            crouch_jump = true\n        end\n        if (run_speed >= 450):\n            AddSpeedY(-1570)\n        else\n            AddSpeedY(-1400)\n        end\n        drifting = false\n    end\n\n    // movimiento de lado a lado \n    if (!crouching or !IsOnFloor() or crouch_jump):\n        // derrape skid\n        if (drifting and IsOnFloor()):\n            GetComponent(\"\").speed_x *= 0.95\n            is_moving = false\n            \n            // Invertir orientación del sprite \n            if (GetComponent(\"\").speed_x > 0):\n                GetComponent(\"WalkAnim\").SetFlipX(true)\n            else\n                GetComponent(\"WalkAnim\").SetFlipX(false)\n            end\n            \n        // mover a la izquierda\n        elif (CheckInput(\"left\")):\n            if (IsOnFloor()):\n                GetComponent(\"WalkAnim\").SetFlipX(true)\n            end\n\n            if (crouching and !IsOnFloor()):\n                GetComponent(\"\").speed_x = -(360 + (run_speed * 0.8))\n            elif (!IsOnFloor() and GetComponent(\"\").speed_x > 0):\n                // En el aire\n                GetComponent(\"\").speed_x *= 0.90\n            else\n                GetComponent(\"\").speed_x = -450 - run_speed\n            end\n            is_moving = true\n            \n        // mover a la derecha\n        elif (CheckInput(\"right\")):\n            if (IsOnFloor()):\n                GetComponent(\"WalkAnim\").SetFlipX(false)\n            end\n\n            if (crouching and !IsOnFloor()):\n                GetComponent(\"\").speed_x = 360 + (run_speed * 0.8)\n            elif (!IsOnFloor() and GetComponent(\"\").speed_x < 0):\n                // En el aire\n                GetComponent(\"\").speed_x *= 0.90\n            else\n                GetComponent(\"\").speed_x = 450 + run_speed\n            end\n            is_moving = true\n            \n        // desaceleracion al detenerse\n        else\n            GetComponent(\"\").speed_x *= 0.90\n        end\n    else\n        // friccion al agacharse en suelo:\n        if (run_speed >= 300 or GetComponent(\"\").speed_x > 300 or GetComponent(\"\").speed_x < -300):\n            GetComponent(\"\").speed_x *= 0.975\n        else\n            GetComponent(\"\").speed_x *= 0.90\n        end\n    end\n\n    // salto de altura variable (no encuentro como llamarle)\n    if (!IsOnFloor() and !CheckInput(\"jump\") and GetComponent(\"\").speed_y < 0):\n        GetComponent(\"\").speed_y *= 0.89\n    end\n\n    // Obtener la velocidad absoluta en  x para calcular la animación\n    abs_speed_x = GetComponent(\"\").speed_x\n    if (abs_speed_x < 0):\n        abs_speed_x *= -1\n    end\n\n    // animaciones\n    if (crouching):\n        // (ordenado por prioridad eh)\n        if (GetComponent(\"WalkAnim\").GetAnim() != \"crouch\"):\n            GetComponent(\"WalkAnim\").Play(\"crouch\")\n        end\n    elif (!IsOnFloor()):\n        if (started_jumping):\n            if (GetComponent(\"WalkAnim\").GetAnim() != \"jump\"):\n                GetComponent(\"WalkAnim\").Play(\"jump\")\n            end\n        else\n            // Si cae sin haber saltado, congela la animación en el frame actual\n            GetComponent(\"WalkAnim\").Stop()\n        end\n    elif (drifting):\n        if (GetComponent(\"WalkAnim\").GetAnim() != \"skid\"):\n            GetComponent(\"WalkAnim\").Play(\"skid\")\n        end\n    elif (is_moving or abs_speed_x > 50):\n        if (GetComponent(\"WalkAnim\").GetAnim() != \"walk\"):\n            GetComponent(\"WalkAnim\").Play(\"walk\")\n        end\n        \n        // velocidad de la animación según la velocidad de movimiento\n        walk_fps = 4 + ((abs_speed_x / 900) * 16)\n        GetComponent(\"WalkAnim\").ChangeFPS(\"walk\", walk_fps)\n    else\n        if (GetComponent(\"WalkAnim\").GetAnim() != \"idle\"):\n            GetComponent(\"WalkAnim\").Play(\"idle\")\n        end\n    end\nend",
 	"settings": {
 		"friction": {
 			"type": "number",
-			"value": 1.0
+			"value": 0.5
 		},
 		"gravity": {
 			"type": "number",
-			"value": 1.0
+			"value": 2.7
 		}
 	}
 }

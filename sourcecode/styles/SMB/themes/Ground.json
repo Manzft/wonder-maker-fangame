@@ -77,6 +77,22 @@
 			"type": "path",
 			"value": "/sprites/theme_cards/ground.png"
 		},
+		"editor_music": {
+			"type": "path",
+			"value": "/ost/editor/super_mario_bros/ground.mp3"
+		},
+		"editor_music_db": {
+			"type": "number",
+			"value": -10.0
+		},
+		"gameplay_music": {
+			"type": "path",
+			"value": "/ost/gameplay/super_mario_bros/ground.mp3"
+		},
+		"gameplay_music_db": {
+			"type": "number",
+			"value": -15.0
+		},
 		"shadows": {
 			"type": "switch",
 			"value": true

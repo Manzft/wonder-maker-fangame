@@ -185,7 +185,7 @@
 				}
 			],
 			"current_animation": "idle",
-			"name": "WalkAnim",
+			"name": "Sprite",
 			"settings": {
 				"blur": {
 					"type": "switch",
@@ -215,6 +215,10 @@
 					"type": "number",
 					"value": 0.0
 				},
+				"rotation": {
+					"type": "number",
+					"value": 0.0
+				},
 				"scale_x": {
 					"type": "number",
 					"value": 5.0
@@ -235,7 +239,7 @@
 			"type": "animated_sprite"
 		},
 		{
-			"name": "Collide",
+			"name": "Collider",
 			"settings": {
 				"gravity": {
 					"type": "number",
@@ -247,52 +251,60 @@
 				},
 				"position_y": {
 					"type": "number",
-					"value": 0.0
+					"value": -2.9
 				},
 				"size_x": {
 					"type": "number",
-					"value": 80.0
+					"value": 60.0
 				},
 				"size_y": {
 					"type": "number",
-					"value": 80.0
+					"value": 75.0
 				}
 			},
 			"type": "collider"
 		},
 		{
-			"name": "Area",
+			"name": "Sound",
 			"settings": {
-				"position_x": {
+				"db": {
 					"type": "number",
-					"value": 80.87451171875
+					"value": -5.0
 				},
-				"position_y": {
-					"type": "number",
-					"value": 3.94508361816406
+				"path": {
+					"type": "path",
+					"value": "/sounds/super_mario_bros/jump.wav"
 				},
-				"size_x": {
+				"pitch": {
 					"type": "number",
-					"value": 63.6705932617188
-				},
-				"size_y": {
-					"type": "number",
-					"value": 73.5333404541016
+					"value": 0.0
 				}
 			},
-			"type": "area"
+			"type": "sound"
 		}
 	],
 	"order": 0,
-	"script": "wscript\n\nen_suelo = true\nvel_correr = 0\n\ncreate()\n    GetComponent(\"WalkAnim\").Play(\"idle\")\nend\n\nframe()\n    moviendose = false\n    agachado = false\n\n    // agacharse\n    if (CheckInput(\"crouch\")):\n        agachado = true\n    end\n\n    // control de aceleracion al correr \n    if (CheckInput(\"spin\") and (CheckInput(\"left\") or CheckInput(\"right\"))):\n        if (vel_correr < 450):\n            vel_correr += 7.5\n        end\n    else\n        vel_correr = 0\n    end\n\n    // movimiento de lado a lado\n    if (!agachado or !en_suelo):\n        // mover a la izquierda\n        if (CheckInput(\"left\")):\n            if (agachado and !en_suelo):\n                GetComponent(\"\").speed_x = -(360 + (vel_correr * 0.8))\n            else\n                GetComponent(\"\").speed_x = -450 - vel_correr\n            end\n            GetComponent(\"WalkAnim\").scale_x = -5\n            moviendose = true\n            \n        // mover a la derecha\n        elif (CheckInput(\"right\")):\n            if (agachado and !en_suelo):\n                GetComponent(\"\").speed_x = 360 + (vel_correr * 0.8)\n            else\n                GetComponent(\"\").speed_x = 450 + vel_correr\n            end\n            GetComponent(\"WalkAnim\").scale_x = 5\n            moviendose = true\n            \n        // derrape al detenerse\n        else\n            if (en_suelo):\n                GetComponent(\"\").speed_x *= 0.90\n            else\n                GetComponent(\"\").speed_x *= 0.90\n            end\n        end\n    else\n        // derrape al agacharse\n        GetComponent(\"\").speed_x *= 0.90\n    end\n\n    // salto\n    if (CheckInput(\"jump\") and en_suelo):\n        if (vel_correr >= 450):\n            AddSpeedY(-1550)\n        else\n            AddSpeedY(-1350)\n        end\n        en_suelo = false\n    end\n\n    // detectar suelo\n    if (GetComponent(\"\").speed_y == 0):\n        en_suelo = true\n    end\n\n    // animaciones\n    if (agachado):\n        // (ordenado por prioridad eh)\n        if (GetComponent(\"WalkAnim\").GetAnim() != \"crouch\"):\n            GetComponent(\"WalkAnim\").Play(\"crouch\")\n        end\n    elif (!en_suelo):\n        if (GetComponent(\"WalkAnim\").GetAnim() != \"jump\"):\n            GetComponent(\"WalkAnim\").Play(\"jump\")\n        end\n    elif (moviendose):\n        if (GetComponent(\"WalkAnim\").GetAnim() != \"walk\"):\n            GetComponent(\"WalkAnim\").Play(\"walk\")\n        end\n        \n        // ajuste de fps para la animación\n        fps_caminar = 10 + ((vel_correr / 450) * 10)\n        GetComponent(\"WalkAnim\").fps = fps_caminar\n    else\n        if (GetComponent(\"WalkAnim\").GetAnim() != \"idle\"):\n            GetComponent(\"WalkAnim\").Play(\"idle\")\n        end\n    end\nend\n\nAreaBodyEntered()\n    Log(GetComponent(\"Area\").GetBody())\nend",
+	"script": "wscript\n\n// Coded by Manzft\n\n// Vars\nacc = 60 //has to be the same or higher than min_speed or mario wont walk lol\nair_acc = 30\nskid = false\nskid_acc = 10\nskid_dir = \"\"\nskid_tolerance = 0.8\ncrouch = false\nspeed = 400\nrun_speed = 700\nmin_speed = 60\njump_strength = 1000\nstarted_jumping = false\njumping = false\njump_running = false\njump_timer = 0.0\njump_max_time = 17\njump_run_max_time = 21\n\n// Start func\nstart()\n    GetComponent(\"Sprite\").Play(\"idle\")\nend\n\n// Movement system\nmovementSystem()\n    spd = GetComponent(\"\").speed_x\n    max_speed = speed\n    if (CheckInput(\"run\"))\n        max_speed = run_speed\n    end\n    \n    _acc = acc\n    if (skid)\n        _acc = skid_acc\n    end\n    if (!IsOnFloor())\n        _acc = air_acc\n    end\n    if (CheckInput(\"right\") and spd < max_speed)\n        if (!crouch)\n            AddSpeedX(_acc)\n        end\n        if (IsOnFloor())\n            GetComponent(\"Sprite\").SetFlipX(false)\n        end\n    elif (CheckInput(\"left\") and spd > max_speed*-1)\n        if (!crouch)\n            AddSpeedX(_acc*-1)\n        end\n        if (IsOnFloor())\n            GetComponent(\"Sprite\").SetFlipX(true)\n        end\n    end\nend\n\n// Skid system\nskidSystem()\n    spd = GetComponent(\"\").speed_x\n    \n    skid_speed = run_speed\n    skid_speed *= skid_tolerance\n    if (IsOnFloor())\n        if (CheckInput(\"right\") and spd <= skid_speed*-1 and !skid)\n            skid = true\n            skid_dir = \"right\"\n        elif (CheckInput(\"left\") and spd >= skid_speed and !skid)\n            skid = true\n            skid_dir = \"left\"\n        else\n            if (skid_dir == \"right\" and CheckInput(\"left\"))\n                skid = false\n            elif (skid_dir == \"left\" and CheckInput(\"right\"))\n                skid = false\n            end\n            if (skid_dir == \"right\" and spd > 0)\n                skid = false\n            elif (skid_dir == \"left\" and spd < 0)\n                skid = false\n            end\n        end\n    else\n        skid = false\n    end\nend\n\n// Crouch system\ncrouchSystem()\n    // Crouch activation\n    if (IsOnFloor())\n        if (CheckInput(\"crouch\"))\n            crouch = true\n            skid = false\n        else\n            crouch = false\n        end\n    end\n    \n    // Crouch auto deactivation\n    if (!IsOnFloor() and GetComponent(\"\").speed_y > 0 and !CheckInput(\"crouch\"))\n        crouch = false\n    end\nend\n\n// Animation system\nanimSystem()\n    spd = GetComponent(\"\").speed_x\n    if (crouch)\n        if (GetComponent(\"Sprite\").GetAnimation() != \"crouch\")\n            GetComponent(\"Sprite\").Play(\"crouch\")\n        end\n    elif (IsOnFloor())\n        if (spd == 0 and !CheckInput(\"left\") and !CheckInput(\"right\"))\n            if (GetComponent(\"Sprite\").GetAnimation() != \"idle\")\n                GetComponent(\"Sprite\").Play(\"idle\")\n            end\n        else\n            if (skid)\n                if (GetComponent(\"Sprite\").GetAnimation() != \"skid\")\n                    GetComponent(\"Sprite\").Play(\"skid\")\n                end\n            else\n                if (GetComponent(\"Sprite\").GetAnimation() != \"walk\")\n                    GetComponent(\"Sprite\").Play(\"walk\")\n                end\n                \n                _spd = spd\n                if (_spd < 0)\n                    _spd *= -1\n                end\n                speed_percent = speed/_spd\n                GetComponent(\"Sprite\").ChangeFPS(\"walk\", 10/speed_percent)\n            end\n        end\n    else\n        if (started_jumping)\n            if (GetComponent(\"Sprite\").GetAnimation() != \"jump\")\n                GetComponent(\"Sprite\").Play(\"jump\")\n            end\n        else\n            GetComponent(\"Sprite\").Stop()\n        end\n    end\nend\n\n// Min speed fix\nminSpeed()\n    spd = GetComponent(\"\").speed_x\n    if (spd < min_speed and spd > min_speed*-1 and IsOnFloor())\n        GetComponent(\"\").speed_x = 0\n    end\nend\n\n// Jump system\njumpSystem()\n    spd = GetComponent(\"\").speed_x\n    if (spd < 0)\n        spd *= -1\n    end\n\n    if (CheckInput(\"jump\") and IsOnFloor())\n        GetComponent(\"\").speed_y = jump_strength*-1\n        started_jumping = true\n        jumping = true\n        jump_timer = 0\n        GetComponent(\"Sound\").Play()\n        if (spd >= run_speed)\n            jump_running = true\n        end\n    end\n    \n    if (jumping)\n        if (!CheckInput(\"jump\"))\n            jump_timer = 0\n            jumping = false\n            jump_running = false\n        end\n    \n        max_time = jump_max_time\n        if (jump_running)\n            max_time = jump_run_max_time\n        end\n        if (jump_timer < max_time)\n            jump_timer += 1\n            GetComponent(\"\").speed_y = jump_strength*-1\n        else\n            jump_timer = 0\n            jumping = false\n            jump_running = false\n        end\n    end\n    \n    if (IsOnFloor() and GetComponent(\"\").speed_y == 0)\n        started_jumping = false\n        jumping = false\n        jump_running = false\n    end\nend\n\n// Frame func\nframe()\n    crouchSystem()\n    animSystem()\n    movementSystem()\n    skidSystem()\n    minSpeed()\n    jumpSystem()\nend",
 	"settings": {
 		"friction": {
 			"type": "number",
-			"value": 0.5
+			"value": 2.0
 		},
 		"gravity": {
 			"type": "number",
-			"value": 2.5
+			"value": 4.5
+		},
+		"grid_size_x": {
+			"type": "number",
+			"value": 1.0
+		},
+		"grid_size_y": {
+			"type": "number",
+			"value": 1.0
+		},
+		"layer": {
+			"type": "number",
+			"value": 1.0
 		}
 	}
 }
